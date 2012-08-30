@@ -32,9 +32,9 @@ namespace GirlsWeekly.Models
                 var internalPackages = new List<Package>();
                 var p = internalPackages;
                 p.Add(new Package { Category = AppResources.PureCategory, PackageId = 1, Title = "Pure(2012.8.15)", MainPicture = "/Pictures/2-7.jpg", IsInternal = true });
-                p.Add(new Package { Category = AppResources.CharmCategory, PackageId = 2, Title = "Pure(2012.8.25)", MainPicture = "/Pictures/1-4.jpg", IsInternal = true });
-                p.Add(new Package { Category = AppResources.PureCategory, PackageId = 1, Title = "Charm(2012.8.15)", MainPicture = "/Pictures/2-7.jpg", IsInternal = true });
-                p.Add(new Package { Category = AppResources.CharmCategory, PackageId = 2, Title = "Charm(2012.8.25)", MainPicture = "/Pictures/1-4.jpg", IsInternal = true });
+                p.Add(new Package { Category = AppResources.PureCategory, PackageId = 2, Title = "Pure(2012.8.25)", MainPicture = "/Pictures/1-4.png", IsInternal = true });
+                p.Add(new Package { Category = AppResources.CharmCategory, PackageId = 3, Title = "Charm(2012.8.15)", MainPicture = "/Pictures/2-7.jpg", IsInternal = true });
+                p.Add(new Package { Category = AppResources.CharmCategory, PackageId = 4, Title = "Charm(2012.8.25)", MainPicture = "/Pictures/1-4.png", IsInternal = true });
                 return internalPackages;
             }
         }

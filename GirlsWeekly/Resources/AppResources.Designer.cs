@@ -70,7 +70,7 @@ namespace GirlsWeekly.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Beauty Weekly.
+        ///   Looks up a localized string similar to Girls Weekly.
         /// </summary>
         public static string ApplicationName {
             get {

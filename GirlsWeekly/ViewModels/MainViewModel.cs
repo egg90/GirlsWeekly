@@ -101,7 +101,7 @@ namespace GirlsWeekly.ViewModel
         public void OnPackageListBoxTap(Package package)
         {
             //// ServiceLocator.Get<ICommonUIService>().ShowMessageBox(args.ToString(), "title");
-            string target = string.Format("/Views/ViewPackagePage.xaml?id={0}", package.PackageId);
+            string target = string.Format("/Views/ViewPackagePage.xaml?PackageId={0}", package.PackageId);
             ServiceLocator.Get<INavigator>().NavigateTo(target);
         }
 

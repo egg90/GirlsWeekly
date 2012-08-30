@@ -21,6 +21,7 @@ namespace GirlsWeekly.Views
     using GirlsWeekly.Locators;
     using GirlsWeekly.Services;
     using Microsoft.Phone.Controls;
+    using GirlsWeekly.ViewModel;
 
     /// <summary>
     /// ViewPackagePage class
@@ -33,6 +34,25 @@ namespace GirlsWeekly.Views
         public ViewPackagePage()
         {
             this.InitializeComponent();
+        }
+
+        /// <summary>
+        /// Called when a page becomes the active page in a frame.
+        /// </summary>
+        /// <param name="e">An object that contains the event data.</param>
+        protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            var queryString = NavigationContext.QueryString;
+            string packageIdString = string.Empty;
+            queryString.TryGetValue("PackageId", out packageIdString);
+            int packageId = -1;
+            int.TryParse(packageIdString, out packageId);
+            ViewPackagePageViewModel viewModel = this.DataContext as ViewPackagePageViewModel;
+            if (viewModel != null)
+            {
+                viewModel
+            }
         }
     }
 }

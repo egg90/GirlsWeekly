@@ -20,8 +20,8 @@ namespace GirlsWeekly.Views
     using System.Windows.Shapes;
     using GirlsWeekly.Locators;
     using GirlsWeekly.Services;
-    using Microsoft.Phone.Controls;
     using GirlsWeekly.ViewModel;
+    using Microsoft.Phone.Controls;
 
     /// <summary>
     /// ViewPackagePage class
@@ -51,7 +51,7 @@ namespace GirlsWeekly.Views
             ViewPackagePageViewModel viewModel = this.DataContext as ViewPackagePageViewModel;
             if (viewModel != null)
             {
-                viewModel
+                viewModel.PackageId = packageId;
             }
         }
     }

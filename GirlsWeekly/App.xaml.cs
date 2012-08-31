@@ -19,6 +19,7 @@ namespace GirlsWeekly
     using System.Windows.Media.Animation;
     using System.Windows.Navigation;
     using System.Windows.Shapes;
+    using GirlsWeekly.Models;
     using Microsoft.Phone.Controls;
     using Microsoft.Phone.Shell;
 
@@ -61,12 +62,22 @@ namespace GirlsWeekly
             this.InitializePhoneApplication();
             
             this.SetupUriMapper();
+            this.LoadInternalPackages();
         }
 
         /// <summary>
         /// Gets the root frame of the application
         /// </summary>
         public PhoneApplicationFrame RootFrame { get; private set; }
+
+        /// <summary>
+        /// Loads the internal packages.
+        /// </summary>
+        private void LoadInternalPackages()
+        {
+            var packageManager = new PackageManager();
+            packageManager.UpdateInternalPackagesIntoDB();
+        }
 
         /// <summary>
         /// Setups the URI mapper.

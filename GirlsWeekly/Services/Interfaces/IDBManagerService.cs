@@ -25,6 +25,13 @@ namespace GirlsWeekly.Services
         IList<Package> GetPackages();
 
         /// <summary>
+        /// Gets the package.
+        /// </summary>
+        /// <param name="packageId">The package id.</param>
+        /// <returns>package id</returns>
+        Package GetPackage(int packageId);
+
+        /// <summary>
         /// Inserts the or update package.
         /// </summary>
         /// <param name="package">The package.</param>

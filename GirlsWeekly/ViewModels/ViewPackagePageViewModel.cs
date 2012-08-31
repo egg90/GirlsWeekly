@@ -24,6 +24,16 @@ namespace GirlsWeekly.ViewModel
     public class ViewPackagePageViewModel : ViewModelBase<ViewPackagePageViewModel>
     {
         /// <summary>
+        /// package id
+        /// </summary>
+        private int packageId;
+
+        /// <summary>
+        /// package object
+        /// </summary>
+        private Package package;
+
+        /// <summary>
         /// the picture groups
         /// </summary>
         private List<PictureGroup> pictureGroups = new List<PictureGroup>
@@ -68,6 +78,56 @@ namespace GirlsWeekly.ViewModel
         #endregion
 
         #region Properties
+
+        /// <summary>
+        /// Gets or sets the package id.
+        /// </summary>
+        /// <value>
+        /// The package id.
+        /// </value>
+        public int PackageId
+        {
+            get
+            {
+                return this.packageId;
+            }
+
+            set
+            {
+                if (this.PackageId != value)
+                {
+                    this.packageId = value;
+                    Package package = ServiceLocator.Get<IDBManagerService>().GetPackage(this.packageId);
+                    if (package != null)
+                    {
+                        this.Package = package;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the package.
+        /// </summary>
+        /// <value>
+        /// The package.
+        /// </value>
+        public Package Package
+        {
+            get
+            {
+                return this.package;
+            }
+
+            set
+            {
+                if (this.package != value)
+                {
+                    this.package = value;
+                    NotifyPropertyChanged(m => m.Package);
+                }
+            }
+        }
 
         /// <summary>
         /// Gets the photos.

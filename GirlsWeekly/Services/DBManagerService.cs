@@ -51,6 +51,33 @@ namespace GirlsWeekly.Services
         }
 
         /// <summary>
+        /// Gets the package.
+        /// </summary>
+        /// <param name="packageId">The package id.</param>
+        /// <returns>
+        /// package id
+        /// </returns>
+        public Package GetPackage(int packageId)
+        {
+            lock (this.dataContextLock)
+            {
+                this.CreateDBIfNotExist();
+                using (var dataContext = new DBContext())
+                {
+                    var queryPackage = from item in dataContext.PackageTable where item.PackageId == packageId select item;
+                    if (queryPackage.Any())
+                    {
+                        return queryPackage.First();
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
         /// Inserts the or update package.
         /// </summary>
         /// <param name="package">The package.</param>

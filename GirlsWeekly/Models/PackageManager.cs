@@ -13,7 +13,9 @@ namespace GirlsWeekly.Models
     using System.IO.IsolatedStorage;
     using System.Net;
     using System.Windows;
+    using GirlsWeekly.Locators;
     using GirlsWeekly.Resources;
+    using GirlsWeekly.Services;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Linq;
 
@@ -23,19 +25,31 @@ namespace GirlsWeekly.Models
     public class PackageManager
     {
         /// <summary>
-        /// Gets the internal packages.
+        /// internal packages
         /// </summary>
+        private List<Package> internalPackages;
+
+        /// <summary>
+        /// Gets or sets the internal packages.
+        /// </summary>
+        /// <value>
+        /// The internal packages.
+        /// </value>
         public List<Package> InternalPackages
         {
             get
             {
-                var internalPackages = new List<Package>();
-                var p = internalPackages;
-                p.Add(new Package { Category = AppResources.PureCategory, PackageId = 1, Title = "Pure(2012.8.15)", MainPicture = "/Pictures/2-7.jpg", IsInternal = true });
-                p.Add(new Package { Category = AppResources.PureCategory, PackageId = 2, Title = "Pure(2012.8.25)", MainPicture = "/Pictures/1-4.png", IsInternal = true });
-                p.Add(new Package { Category = AppResources.CharmCategory, PackageId = 3, Title = "Charm(2012.8.15)", MainPicture = "/Pictures/2-7.jpg", IsInternal = true });
-                p.Add(new Package { Category = AppResources.CharmCategory, PackageId = 4, Title = "Charm(2012.8.25)", MainPicture = "/Pictures/1-4.png", IsInternal = true });
-                return internalPackages;
+                if (this.internalPackages == null)
+                {
+                    this.InternalPackages = this.LoadInternalPackages();
+                }
+
+                return this.internalPackages;
+            }
+
+            set
+            {
+                this.internalPackages = value;
             }
         }
 
@@ -44,8 +58,17 @@ namespace GirlsWeekly.Models
         /// </summary>
         public void DumpInternalPackages()
         {
+            var internalPackages = new List<Package>();
+            var p = internalPackages;
+
+            p.Add(new Package { Category = AppResources.PureCategory, PackageId = 1, Title = "Pure(2012.8.15)", MainPicture = "/Pictures/2-7.jpg", IsInternal = true, PictureGroups = new List<PictureGroup> { } });
+            p.Add(new Package { Category = AppResources.PureCategory, PackageId = 2, Title = "Pure(2012.8.25)", MainPicture = "/Pictures/1-4.png", IsInternal = true });
+            p.Add(new Package { Category = AppResources.CharmCategory, PackageId = 3, Title = "Charm(2012.8.15)", MainPicture = "/Pictures/2-7.jpg", IsInternal = true });
+            p.Add(new Package { Category = AppResources.CharmCategory, PackageId = 4, Title = "Charm(2012.8.25)", MainPicture = "/Pictures/1-4.png", IsInternal = true });
+
             var d = new Dictionary<string, object>();
-            d.Add("InternalPackages", this.InternalPackages);
+            d.Add("InternalPackages", internalPackages);
+
             string packages = JsonConvert.SerializeObject(d);
 
             using (IsolatedStorageFile file = IsolatedStorageFile.GetUserStoreForApplication())
@@ -113,6 +136,14 @@ namespace GirlsWeekly.Models
             }
 
             return categoryList;
+        }
+
+        /// <summary>
+        /// Updates the internal packages into DB.
+        /// </summary>
+        public void UpdateInternalPackagesIntoDB()
+        {
+            ServiceLocator.Get<IDBManagerService>().InsertOrUpdatePackages(this.InternalPackages);
         }
     }
 }

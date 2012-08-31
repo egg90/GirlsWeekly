@@ -25,6 +25,11 @@ namespace GirlsWeekly.Models
     public class PackageManager
     {
         /// <summary>
+        /// Internal Packages File Path
+        /// </summary>
+        public const string InternalPackagesFilePath = "Pictures/InternalPackages.json";
+
+        /// <summary>
         /// internal packages
         /// </summary>
         private List<Package> internalPackages;
@@ -61,10 +66,10 @@ namespace GirlsWeekly.Models
             var internalPackages = new List<Package>();
             var p = internalPackages;
 
-            p.Add(new Package { Category = AppResources.PureCategory, PackageId = 1, Title = "Pure(2012.8.15)", MainPicture = "/Pictures/2-7.jpg", IsInternal = true, PictureGroups = new List<PictureGroup> { } });
-            p.Add(new Package { Category = AppResources.PureCategory, PackageId = 2, Title = "Pure(2012.8.25)", MainPicture = "/Pictures/1-4.png", IsInternal = true });
-            p.Add(new Package { Category = AppResources.CharmCategory, PackageId = 3, Title = "Charm(2012.8.15)", MainPicture = "/Pictures/2-7.jpg", IsInternal = true });
-            p.Add(new Package { Category = AppResources.CharmCategory, PackageId = 4, Title = "Charm(2012.8.25)", MainPicture = "/Pictures/1-4.png", IsInternal = true });
+            p.Add(new Package { Category = AppResources.PureCategory, PackageId = 1, Title = "Pure(2012.8.15)", MainPicture = "/Pictures/2-7.jpg", CreateTime = DateTime.Now, IsInternal = true, PictureGroups = new List<PictureGroup> { } });
+            p.Add(new Package { Category = AppResources.PureCategory, PackageId = 2, Title = "Pure(2012.8.25)", MainPicture = "/Pictures/1-4.png", CreateTime = DateTime.Now, IsInternal = true });
+            p.Add(new Package { Category = AppResources.CharmCategory, PackageId = 3, Title = "Charm(2012.8.15)", MainPicture = "/Pictures/2-7.jpg", CreateTime = DateTime.Now, IsInternal = true });
+            p.Add(new Package { Category = AppResources.CharmCategory, PackageId = 4, Title = "Charm(2012.8.25)", MainPicture = "/Pictures/1-4.png", CreateTime = DateTime.Now, IsInternal = true });
 
             var d = new Dictionary<string, object>();
             d.Add("InternalPackages", internalPackages);
@@ -90,14 +95,11 @@ namespace GirlsWeekly.Models
         public List<Package> LoadInternalPackages()
         {
             string jstr;
-            using (IsolatedStorageFile file = IsolatedStorageFile.GetUserStoreForApplication())
+            using (var stream = Application.GetResourceStream(new Uri(InternalPackagesFilePath, UriKind.Relative)).Stream)
             {
-                using (var isoFileStream = new IsolatedStorageFileStream("InternalPackages.json", System.IO.FileMode.Open, file))
+                using (StreamReader reader = new StreamReader(stream))
                 {
-                    using (var writer = new StreamReader(isoFileStream))
-                    {
-                        jstr = writer.ReadToEnd();
-                    }
+                    jstr = reader.ReadToEnd();
                 }
             }
 

@@ -47,6 +47,7 @@ namespace GirlsWeekly.Models
         /// The package id.
         /// </value>
         [Column(CanBeNull = false)]
+        [DataMember]
         public int PackageId { get; set; }
 
         /// <summary>

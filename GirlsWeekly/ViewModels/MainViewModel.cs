@@ -47,7 +47,7 @@ namespace GirlsWeekly.ViewModel
         {
             ////this.TestAppInfos();
             ////this.TestModels();
-            ////this.TestDumpInternalPackages();
+            this.TestDumpInternalPackages();
             this.LoadInternalPackages();
         }
 

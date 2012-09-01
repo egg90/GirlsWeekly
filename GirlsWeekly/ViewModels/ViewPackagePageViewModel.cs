@@ -34,30 +34,6 @@ namespace GirlsWeekly.ViewModel
         private Package package;
 
         /// <summary>
-        /// the picture groups
-        /// </summary>
-        private List<PictureGroup> pictureGroups = new List<PictureGroup>
-        {
-            new PictureGroup { Title = "周杰伦xxxxxxxx", MainPicture = "/Pictures/1-1.png" },
-            new PictureGroup { Title = "甄子丹xxxxxxxxx甄子丹", MainPicture = "/Pictures/1-2.png" },
-            new PictureGroup { Title = "xxxx陈小春xxx", MainPicture = "/Pictures/1-3.png" },
-            new PictureGroup { Title = "陈意涵xxxxxxx", MainPicture = "/Pictures/1-4.png" },
-            new PictureGroup { Title = "大S sssssss", MainPicture = "/Pictures/1-5.png" },
-            new PictureGroup { Title = "古天乐dddddddd", MainPicture = "/Pictures/1-6.png" },
-
-            new PictureGroup { Title = "周杰伦xxxxxxxx", MainPicture = "/Pictures/2-1.jpg" },
-            new PictureGroup { Title = "甄子丹xxxxxxxxx甄子丹", MainPicture = "/Pictures/2-2.jpg" },
-            new PictureGroup { Title = "xxxx陈小春xxx", MainPicture = "/Pictures/2-3.jpg" },
-            new PictureGroup { Title = "大大xxxxxxx", MainPicture = "/Pictures/2-4.jpg" },
-            new PictureGroup { Title = "大S sssssss", MainPicture = "/Pictures/2-5.jpg" },
-            new PictureGroup { Title = "古天乐dddddddd", MainPicture = "/Pictures/2-6.jpg" },
-            new PictureGroup { Title = "大S sssssss", MainPicture = "/Pictures/2-7.jpg" },
-            new PictureGroup { Title = "古天乐dddddddd", MainPicture = "/Pictures/2-8.jpg" },
-            new PictureGroup { Title = "大S sssssss", MainPicture = "/Pictures/2-9.jpg" },
-            new PictureGroup { Title = "古天乐dddddddd", MainPicture = "/Pictures/2-10.jpg" },
-        };
-
-        /// <summary>
         /// pictureGroup List Tap Command
         /// </summary>
         private DelegateCommand<PictureGroup> pictureGroupListTapCommand;
@@ -127,17 +103,6 @@ namespace GirlsWeekly.ViewModel
         }
 
         /// <summary>
-        /// Gets the photos.
-        /// </summary>
-        public List<PictureGroup> PictureGroups
-        {
-            get
-            {
-                return this.pictureGroups;
-            }
-        }
-
-        /// <summary>
         /// Gets the picture group list tap command.
         /// </summary>
         public DelegateCommand<PictureGroup> PictureGroupListTapCommand
@@ -150,11 +115,7 @@ namespace GirlsWeekly.ViewModel
 
         #endregion
 
-        #region Methods
-
-        #endregion
-
-        #region Callbacks
+        #region Callbacks and Methods
 
         /// <summary>
         /// Called when [app bar like button click].
@@ -175,10 +136,10 @@ namespace GirlsWeekly.ViewModel
         /// <summary>
         /// Called when [picture group list box tap].
         /// </summary>
-        /// <param name="args">The args.</param>
-        public void OnPictureGroupListBoxTap(PictureGroup args)
+        /// <param name="pictureGroup">The picture group.</param>
+        public void OnPictureGroupListBoxTap(PictureGroup pictureGroup)
         {
-            string target = string.Format("/Views/ViewPicturePage.xaml?id={0}", 0);
+            string target = string.Format("/Views/ViewPicturePage.xaml?PackageId={0}&PictureGroupIndex={1}", this.PackageId, this.Package.PictureGroups.IndexOf(pictureGroup));
             ServiceLocator.Get<INavigator>().NavigateTo(target);
         }
 

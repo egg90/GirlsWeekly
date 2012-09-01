@@ -12,6 +12,9 @@ namespace GirlsWeekly.ViewModel
     using System.Collections.ObjectModel;
     using System.Threading;
     using System.Windows;
+    using GirlsWeekly.Locators;
+    using GirlsWeekly.Models;
+    using GirlsWeekly.Services;
     using SimpleMvvmToolkit;
     using SimpleMvvmToolkit.ModelExtensions;
 
@@ -21,35 +24,19 @@ namespace GirlsWeekly.ViewModel
     public class ViewPicturePageViewModel : ViewModelBase<ViewPicturePageViewModel>
     {
         /// <summary>
-        /// photo strings
+        /// Package Id
         /// </summary>
-        private List<string> photos = new List<string>
-        {
-            "http://qcimg1.mnsfz.com/pic/qingchun/2012-8-17/1/1.jpg",
-            "http://qcimg1.mnsfz.com/pic/qingchun/2012-8-17/1/10.jpg",
-            "http://imgs.xiuna.com/xiezhen/2012-8-22/1/1.jpg",
+        private int packageId = -1;
 
-            "http://image.hnol.net/c/2012-08/22/20/201208222049111388-1559530.jpg",
-            "http://image.hnol.net/c/2012-08/22/20/20120822204911899-1559530.jpg",
-            "http://image.hnol.net/c/2012-08/22/20/2012082220491187610-1559530.jpg",
-            "http://image.hnol.net/c/2012-08/22/20/2012082220491225211-1559530.jpg",
-            "http://image.hnol.net/c/2012-08/22/20/2012082220491235812-1559530.jpg",
-            "http://image.hnol.net/c/2012-08/22/20/201208222049109761-1559530.jpg",
-            "http://image.hnol.net/c/2012-08/22/20/201208222049119642-1559530.jpg",
-            "http://image.hnol.net/c/2012-08/22/20/201208222049113443-1559530.jpg",
-            "http://image.hnol.net/c/2012-08/22/20/201208222049115944-1559530.jpg",
-            "http://image.hnol.net/c/2012-08/22/20/201208222049118355-1559530.jpg",
-            "http://image.hnol.net/c/2012-08/22/20/2012082220491186-1559530.jpg",
-            "http://image.hnol.net/c/2012-08/22/20/201208222049118117-1559530.jpg",
-            "http://image.hnol.net/c/2012-08/22/20/2012082220491248513-1559530.jpg",
-            "http://image.hnol.net/c/2012-08/22/20/2012082220491217914-1559530.jpg",
-            "http://image.hnol.net/c/2012-08/22/20/2012082220491239815-1559530.jpg",
-            "http://image.hnol.net/c/2012-08/22/20/2012082220491268916-1559530.jpg",
-            "http://image.hnol.net/c/2012-08/22/20/201208222049126417-1559530.jpg",
-            "http://image.hnol.net/c/2012-08/22/20/2012082220491297518-1559530.jpg",
-            "http://image.hnol.net/c/2012-08/22/20/20120822205431931-1559530.jpg",
-            "http://image.hnol.net/c/2012-08/22/20/201208222054322162-1559530.jpg",
-        };
+        /// <summary>
+        /// Picture Group Id
+        /// </summary>
+        private int pictureGroupIndex = -1;
+
+        /// <summary>
+        /// package object
+        /// </summary>
+        private Package package = null;
 
         #region Initialization and Cleanup
 
@@ -75,7 +62,74 @@ namespace GirlsWeekly.ViewModel
         {
             get
             {
-                return this.photos;
+                return this.Package.PictureGroups[this.PictureGroupIndex].PictureList;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the package id.
+        /// </summary>
+        /// <value>
+        /// The package id.
+        /// </value>
+        public int PackageId
+        {
+            get
+            {
+                return this.packageId;
+            }
+
+            set
+            {
+                this.packageId = value;
+                Package package = ServiceLocator.Get<IDBManagerService>().GetPackage(value);
+                if (package != null)
+                {
+                    this.Package = package;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the index of the picture group.
+        /// </summary>
+        /// <value>
+        /// The index of the picture group.
+        /// </value>
+        public int PictureGroupIndex
+        {
+            get
+            {
+                return this.pictureGroupIndex;
+            }
+
+            set
+            {
+                this.pictureGroupIndex = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the package.
+        /// </summary>
+        /// <value>
+        /// The package.
+        /// </value>
+        public Package Package
+        {
+            get
+            {
+                return this.package;
+            }
+
+            set
+            {
+                if (this.package != value)
+                {
+                    this.package = value;
+                }
+
+                NotifyPropertyChanged(m => m.Package);
             }
         }
 

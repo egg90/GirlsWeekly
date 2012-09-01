@@ -6,3 +6,4 @@
 Push
 提示绑定Tile到主页
 ok 本地化字符串和程序标题
+Preload(ViewPackage preload, viewpicpage preload)

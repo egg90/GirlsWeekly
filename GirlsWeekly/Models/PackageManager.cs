@@ -71,7 +71,58 @@ namespace GirlsWeekly.Models
             var internalPackages = new List<Package>();
             var p = internalPackages;
 
-            p.Add(new Package { Category = CategoryType.Pure, PackageId = 1, Title = "Pure(2012.8.15)", MainPicture = "/Pictures/2-7.jpg", CreateTime = DateTime.Now, IsInternal = true });
+            p.Add(new Package
+            {
+                Category = CategoryType.Pure,
+                PackageId = 1,
+                Title = "Pure(2012.8.15)",
+                MainPicture = "/Pictures/2-7.jpg",
+                CreateTime = DateTime.Now,
+                IsInternal = true,
+                PictureGroups = new List<PictureGroup>
+                {
+                    new PictureGroup
+                    {
+                        Title = "迷人的早晨慵懒的梦",
+                        MainPicture = "http://imgs.xiuna.com/xiezhen/2012-7-6/3/1.jpg",
+                        PictureList = new List<string>
+                        {
+                            "http://imgs.xiuna.com/xiezhen/2012-7-6/3/1.jpg", "http://imgs.xiuna.com/xiezhen/2012-7-6/3/2.jpg", "http://imgs.xiuna.com/xiezhen/2012-7-6/3/3.jpg", "http://imgs.xiuna.com/xiezhen/2012-7-6/3/4.jpg", "http://imgs.xiuna.com/xiezhen/2012-7-6/3/5.jpg", "http://imgs.xiuna.com/xiezhen/2012-7-6/3/6.jpg", "http://imgs.xiuna.com/xiezhen/2012-7-6/3/7.jpg", "http://imgs.xiuna.com/xiezhen/2012-7-6/3/8.jpg"
+                        }
+                    },
+                    new PictureGroup
+                    {
+                        Title = "阳光mm写真",
+                        MainPicture = "http://qcimg1.mnsfz.com/pic/qingchun/2012-8-17/1/1.jpg",
+                        PictureList = new List<string>
+                        {
+                            "http://qcimg1.mnsfz.com/pic/qingchun/2012-8-17/1/1.jpg",
+                            "http://qcimg1.mnsfz.com/pic/qingchun/2012-8-17/1/10.jpg",
+                            "http://imgs.xiuna.com/xiezhen/2012-8-22/1/1.jpg",
+                            "http://image.hnol.net/c/2012-08/22/20/201208222049111388-1559530.jpg",
+                            "http://image.hnol.net/c/2012-08/22/20/20120822204911899-1559530.jpg",
+                            "http://image.hnol.net/c/2012-08/22/20/2012082220491187610-1559530.jpg",
+                            "http://image.hnol.net/c/2012-08/22/20/2012082220491225211-1559530.jpg",
+                            "http://image.hnol.net/c/2012-08/22/20/2012082220491235812-1559530.jpg",
+                            "http://image.hnol.net/c/2012-08/22/20/201208222049109761-1559530.jpg",
+                            "http://image.hnol.net/c/2012-08/22/20/201208222049119642-1559530.jpg",
+                            "http://image.hnol.net/c/2012-08/22/20/201208222049113443-1559530.jpg",
+                            "http://image.hnol.net/c/2012-08/22/20/201208222049115944-1559530.jpg",
+                            "http://image.hnol.net/c/2012-08/22/20/201208222049118355-1559530.jpg",
+                            "http://image.hnol.net/c/2012-08/22/20/2012082220491186-1559530.jpg",
+                            "http://image.hnol.net/c/2012-08/22/20/201208222049118117-1559530.jpg",
+                            "http://image.hnol.net/c/2012-08/22/20/2012082220491248513-1559530.jpg",
+                            "http://image.hnol.net/c/2012-08/22/20/2012082220491217914-1559530.jpg",
+                            "http://image.hnol.net/c/2012-08/22/20/2012082220491239815-1559530.jpg",
+                            "http://image.hnol.net/c/2012-08/22/20/2012082220491268916-1559530.jpg",
+                            "http://image.hnol.net/c/2012-08/22/20/201208222049126417-1559530.jpg",
+                            "http://image.hnol.net/c/2012-08/22/20/2012082220491297518-1559530.jpg",
+                            "http://image.hnol.net/c/2012-08/22/20/20120822205431931-1559530.jpg",
+                            "http://image.hnol.net/c/2012-08/22/20/201208222054322162-1559530.jpg",
+                        }
+                    },
+                },
+            });
             p.Add(new Package { Category = CategoryType.Pure, PackageId = 2, Title = "Pure(2012.8.25)", MainPicture = "/Pictures/1-4.png", CreateTime = DateTime.Now, IsInternal = true });
             p.Add(new Package { Category = CategoryType.Charm, PackageId = 3, Title = "Charm(2012.8.15)", MainPicture = "/Pictures/2-7.jpg", CreateTime = DateTime.Now, IsInternal = true });
             p.Add(new Package { Category = CategoryType.Charm, PackageId = 4, Title = "Charm(2012.8.25)", MainPicture = "/Pictures/1-4.png", CreateTime = DateTime.Now, IsInternal = true });

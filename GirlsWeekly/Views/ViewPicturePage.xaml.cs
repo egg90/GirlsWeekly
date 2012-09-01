@@ -19,6 +19,7 @@ namespace GirlsWeekly.Views
     using System.Windows.Media.Animation;
     using System.Windows.Shapes;
     using GirlsWeekly.Resources;
+    using GirlsWeekly.ViewModel;
     using Microsoft.Phone.Controls;
     using Microsoft.Phone.Shell;
 
@@ -33,6 +34,30 @@ namespace GirlsWeekly.Views
         public ViewPicturePage()
         {
             this.InitializeComponent();
+        }
+
+        /// <summary>
+        /// 当页面变为框架中的活动页面时 调用。
+        /// </summary>
+        /// <param name="e">包含 事件数据的对象。</param>
+        protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            var queryString = NavigationContext.QueryString;
+            string packageIdString = string.Empty;
+            string pictureGroupIndexString = string.Empty;
+            queryString.TryGetValue("PackageId", out packageIdString);
+            queryString.TryGetValue("PictureGroupIndex", out pictureGroupIndexString);
+            int packageId = -1;
+            int pictureGroupIndex = -1;
+            int.TryParse(packageIdString, out packageId);
+            int.TryParse(pictureGroupIndexString, out pictureGroupIndex);
+            ViewPicturePageViewModel viewModel = this.DataContext as ViewPicturePageViewModel;
+            if (viewModel != null)
+            {
+                viewModel.PackageId = packageId;
+                viewModel.PictureGroupIndex = pictureGroupIndex;
+            }
         }
     }
 }

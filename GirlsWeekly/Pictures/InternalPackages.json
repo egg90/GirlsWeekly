@@ -1,1 +1,40 @@
-{"InternalPackages":[{"Category":"Charm","Title":"Charm(2012.8.15)","MainPicture":"/Pictures/2-7.jpg","PictureGroups":null,"IsInternal":false,"CreateTime":"2012-08-29T21:36:23.13+08:00"},{"Category":"Charm","Title":"Charm(2012.8.22)","MainPicture":"/Pictures/1-4.png","PictureGroups":null,"IsInternal":false,"CreateTime":"2012-08-29T21:36:23.145+08:00"},{"Category":"Pure","Title":"Charm(2012.8.15)","MainPicture":"/Pictures/2-7.jpg","PictureGroups":null,"IsInternal":false,"CreateTime":"2012-08-29T21:36:23.145+08:00"},{"Category":"Pure","Title":"Charm(2012.8.22)","MainPicture":"/Pictures/1-4.png","PictureGroups":null,"IsInternal":false,"CreateTime":"2012-08-29T21:36:23.145+08:00"}]}
+{
+  "InternalPackages": [
+    {
+      "PackageId": 1,
+      "Category": 0,
+      "Title": "Pure(2012.8.15)",
+      "MainPicture": "/Pictures/2-7.jpg",
+      "PictureGroups": null,
+      "IsInternal": true,
+      "CreateTime": "2012-09-01T14:56:55.878+08:00"
+    },
+    {
+      "PackageId": 2,
+      "Category": 0,
+      "Title": "Pure(2012.8.25)",
+      "MainPicture": "/Pictures/1-4.png",
+      "PictureGroups": null,
+      "IsInternal": true,
+      "CreateTime": "2012-09-01T14:56:55.906+08:00"
+    },
+    {
+      "PackageId": 3,
+      "Category": 1,
+      "Title": "Charm(2012.8.15)",
+      "MainPicture": "/Pictures/2-7.jpg",
+      "PictureGroups": null,
+      "IsInternal": true,
+      "CreateTime": "2012-09-01T14:56:55.906+08:00"
+    },
+    {
+      "PackageId": 4,
+      "Category": 1,
+      "Title": "Charm(2012.8.25)",
+      "MainPicture": "/Pictures/1-4.png",
+      "PictureGroups": null,
+      "IsInternal": true,
+      "CreateTime": "2012-09-01T14:56:55.906+08:00"
+    }
+  ]
+}

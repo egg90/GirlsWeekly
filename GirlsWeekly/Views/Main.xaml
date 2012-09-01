@@ -27,7 +27,7 @@
             
             <controls:Panorama.HeaderTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding Title}" />
+                    <TextBlock Text="{Binding Name}" />
                 </DataTemplate>
             </controls:Panorama.HeaderTemplate>
             

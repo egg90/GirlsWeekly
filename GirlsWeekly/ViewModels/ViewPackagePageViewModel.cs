@@ -94,14 +94,11 @@ namespace GirlsWeekly.ViewModel
 
             set
             {
-                if (this.PackageId != value)
+                this.packageId = value;
+                Package package = ServiceLocator.Get<IDBManagerService>().GetPackage(this.packageId);
+                if (package != null)
                 {
-                    this.packageId = value;
-                    Package package = ServiceLocator.Get<IDBManagerService>().GetPackage(this.packageId);
-                    if (package != null)
-                    {
-                        this.Package = package;
-                    }
+                    this.Package = package;
                 }
             }
         }

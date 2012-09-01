@@ -123,8 +123,47 @@
   <data name="ApplicationName" xml:space="preserve">
     <value>Girls Weekly</value>
   </data>
-  <data name="CharmCategory" xml:space="preserve">
+  <data name="CategoryAfter90" xml:space="preserve">
+    <value>Girls After 90</value>
+  </data>
+  <data name="CategoryAutodyne" xml:space="preserve">
+    <value>Girls Autodyne</value>
+  </data>
+  <data name="CategoryCampus" xml:space="preserve">
+    <value>Campus Girls</value>
+  </data>
+  <data name="CategoryCharm" xml:space="preserve">
     <value>Charm Girls</value>
+  </data>
+  <data name="CategoryCool" xml:space="preserve">
+    <value>Cool Girls</value>
+  </data>
+  <data name="CategoryCute" xml:space="preserve">
+    <value>Cute Girls</value>
+  </data>
+  <data name="CategoryFeatured" xml:space="preserve">
+    <value>Featured</value>
+  </data>
+  <data name="CategoryHot" xml:space="preserve">
+    <value>Hot Girls</value>
+  </data>
+  <data name="CategoryModel" xml:space="preserve">
+    <value>Models</value>
+  </data>
+  <data name="CategoryOthers" xml:space="preserve">
+    <value>Others</value>
+  </data>
+  <data name="CategoryPlain" xml:space="preserve">
+    <value>Plain Girls</value>
+  </data>
+  <data name="CategoryPure" xml:space="preserve">
+    <value>Pure Girls</value>
+  </data>
+  <data name="CategoryRecommended" xml:space="preserve">
+    <value>Recommended</value>
+  </data>
+  <data name="CategorySunny" xml:space="preserve">
+    <value>Sunny Girls</value>
   </data>
   <data name="ConfirmationTitle" xml:space="preserve">
     <value>Confirmation</value>
@@ -134,8 +173,5 @@
   </data>
   <data name="Like" xml:space="preserve">
     <value>Like</value>
-  </data>
-  <data name="PureCategory" xml:space="preserve">
-    <value>Pure Girls</value>
   </data>
 </root>

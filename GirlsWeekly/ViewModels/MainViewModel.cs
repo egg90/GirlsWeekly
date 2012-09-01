@@ -47,8 +47,8 @@ namespace GirlsWeekly.ViewModel
         {
             ////this.TestAppInfos();
             ////this.TestModels();
-            this.TestDumpInternalPackages();
-            this.TestLoadInternalPackages();
+            ////this.TestDumpInternalPackages();
+            this.LoadInternalPackages();
         }
 
         #endregion
@@ -134,7 +134,7 @@ namespace GirlsWeekly.ViewModel
 
             //// package
             Package package = this.categories[0].Packages[0];
-            package.Category = string.Empty;
+            package.Category = CategoryType.Pure;
             package.CreateTime = DateTime.Now;
             package.PictureGroups = new List<PictureGroup> { pictureGroup, pictureGroup, };
 
@@ -167,7 +167,7 @@ namespace GirlsWeekly.ViewModel
         /// <summary>
         /// Tests the load internal packages.
         /// </summary>
-        private void TestLoadInternalPackages()
+        private void LoadInternalPackages()
         {
             var packageManager = new PackageManager();
             this.Categories = packageManager.PackagesToCategories(packageManager.InternalPackages);

@@ -58,7 +58,7 @@ namespace GirlsWeekly.Models
         /// </value>
         [Column(CanBeNull = false)]
         [DataMember]
-        public string Category { get; set; }
+        public CategoryType Category { get; set; }
 
         /// <summary>
         /// Gets or sets the title.

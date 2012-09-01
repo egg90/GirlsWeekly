@@ -20,8 +20,8 @@
     <!--LayoutRoot contains the root grid where all other page content is placed-->
     <Grid x:Name="LayoutRoot">
         <StackPanel x:Name="MainPanel">
-            <TextBlock Text="清纯美女 第12期" Margin="20" FontSize="36" />
-            <ListBox toolkit:TiltEffect.IsTiltEnabled="True" ItemsSource="{Binding PictureGroups}" HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="Transparent" Height="710" Width="480">
+            <TextBlock Text="{Binding Path=Package.Title}" Margin="20" FontSize="36" />
+            <ListBox toolkit:TiltEffect.IsTiltEnabled="True" ItemsSource="{Binding Path=Package.PictureGroups}" HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="Transparent" Height="710" Width="480">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <toolkit:WrapPanel Orientation="Horizontal" HorizontalAlignment="Left"/>

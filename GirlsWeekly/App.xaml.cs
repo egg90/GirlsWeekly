@@ -62,7 +62,7 @@ namespace GirlsWeekly
             this.InitializePhoneApplication();
             
             this.SetupUriMapper();
-            this.LoadInternalPackages();
+            this.UpdateInternalPackages();
         }
 
         /// <summary>
@@ -73,7 +73,7 @@ namespace GirlsWeekly
         /// <summary>
         /// Loads the internal packages.
         /// </summary>
-        private void LoadInternalPackages()
+        private void UpdateInternalPackages()
         {
             var packageManager = new PackageManager();
             packageManager.UpdateInternalPackagesIntoDB();

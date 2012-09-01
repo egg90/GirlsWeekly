@@ -151,6 +151,15 @@ namespace GirlsWeekly.Resources {
         }
         
         /// <summary>
+        ///   查找类似 Lolita 的本地化字符串。
+        /// </summary>
+        public static string CategoryLolita {
+            get {
+                return ResourceManager.GetString("CategoryLolita", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Models 的本地化字符串。
         /// </summary>
         public static string CategoryModel {
@@ -192,6 +201,15 @@ namespace GirlsWeekly.Resources {
         public static string CategoryRecommended {
             get {
                 return ResourceManager.GetString("CategoryRecommended", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Star 的本地化字符串。
+        /// </summary>
+        public static string CategoryStar {
+            get {
+                return ResourceManager.GetString("CategoryStar", resourceCulture);
             }
         }
         

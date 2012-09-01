@@ -147,6 +147,9 @@
   <data name="CategoryHot" xml:space="preserve">
     <value>Hot Girls</value>
   </data>
+  <data name="CategoryLolita" xml:space="preserve">
+    <value>Lolita</value>
+  </data>
   <data name="CategoryModel" xml:space="preserve">
     <value>Models</value>
   </data>
@@ -161,6 +164,9 @@
   </data>
   <data name="CategoryRecommended" xml:space="preserve">
     <value>Recommended</value>
+  </data>
+  <data name="CategoryStar" xml:space="preserve">
+    <value>Star</value>
   </data>
   <data name="CategorySunny" xml:space="preserve">
     <value>Sunny Girls</value>

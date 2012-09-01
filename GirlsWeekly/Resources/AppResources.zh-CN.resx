@@ -123,8 +123,53 @@
   <data name="ApplicationName" xml:space="preserve">
     <value>阳光美女周刊</value>
   </data>
-  <data name="CharmCategory" xml:space="preserve">
+  <data name="CategoryAfter90" xml:space="preserve">
+    <value>90后</value>
+  </data>
+  <data name="CategoryAutodyne" xml:space="preserve">
+    <value>美女自拍</value>
+  </data>
+  <data name="CategoryCampus" xml:space="preserve">
+    <value>校园美女</value>
+  </data>
+  <data name="CategoryCharm" xml:space="preserve">
     <value>魅惑私房</value>
+  </data>
+  <data name="CategoryCool" xml:space="preserve">
+    <value>清凉美女</value>
+  </data>
+  <data name="CategoryCute" xml:space="preserve">
+    <value>俏皮私房</value>
+  </data>
+  <data name="CategoryFeatured" xml:space="preserve">
+    <value>精选图集</value>
+  </data>
+  <data name="CategoryHot" xml:space="preserve">
+    <value>正点美女</value>
+  </data>
+  <data name="CategoryLolita" xml:space="preserve">
+    <value>萝莉</value>
+  </data>
+  <data name="CategoryModel" xml:space="preserve">
+    <value>美女模特</value>
+  </data>
+  <data name="CategoryOthers" xml:space="preserve">
+    <value>其它</value>
+  </data>
+  <data name="CategoryPlain" xml:space="preserve">
+    <value>素颜美眉</value>
+  </data>
+  <data name="CategoryPure" xml:space="preserve">
+    <value>清纯写真</value>
+  </data>
+  <data name="CategoryRecommended" xml:space="preserve">
+    <value>推荐图集</value>
+  </data>
+  <data name="CategoryStar" xml:space="preserve">
+    <value>美女明星</value>
+  </data>
+  <data name="CategorySunny" xml:space="preserve">
+    <value>阳光女孩</value>
   </data>
   <data name="ConfirmationTitle" xml:space="preserve">
     <value>确认</value>
@@ -134,8 +179,5 @@
   </data>
   <data name="Like" xml:space="preserve">
     <value>喜欢</value>
-  </data>
-  <data name="PureCategory" xml:space="preserve">
-    <value>清纯写真</value>
   </data>
 </root>

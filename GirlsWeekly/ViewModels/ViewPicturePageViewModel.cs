@@ -38,6 +38,11 @@ namespace GirlsWeekly.ViewModel
         /// </summary>
         private Package package = null;
 
+        /// <summary>
+        /// Picture Group
+        /// </summary>
+        private PictureGroup pictureGroup = null;
+
         #region Initialization and Cleanup
 
         /// <summary>
@@ -54,17 +59,6 @@ namespace GirlsWeekly.ViewModel
         #endregion
 
         #region Properties
-
-        /// <summary>
-        /// Gets the photos.
-        /// </summary>
-        public List<string> Photos
-        {
-            get
-            {
-                return this.Package.PictureGroups[this.PictureGroupIndex].PictureList;
-            }
-        }
 
         /// <summary>
         /// Gets or sets the package id.
@@ -106,6 +100,10 @@ namespace GirlsWeekly.ViewModel
             set
             {
                 this.pictureGroupIndex = value;
+                if (value >= 0 && this.Package != null)
+                {
+                    this.PictureGroup = this.Package.PictureGroups[value];
+                }
             }
         }
 
@@ -130,6 +128,29 @@ namespace GirlsWeekly.ViewModel
                 }
 
                 NotifyPropertyChanged(m => m.Package);
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the picture group.
+        /// </summary>
+        /// <value>
+        /// The picture group.
+        /// </value>
+        public PictureGroup PictureGroup
+        {
+            get
+            {
+                return this.pictureGroup;
+            }
+
+            set
+            {
+                if (this.pictureGroup != value)
+                {
+                    this.pictureGroup = value;
+                    NotifyPropertyChanged(m => m.PictureGroup);
+                }
             }
         }
 

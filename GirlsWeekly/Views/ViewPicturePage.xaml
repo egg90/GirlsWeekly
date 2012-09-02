@@ -21,24 +21,29 @@
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent" Margin="0">
         <!--Pivot Control-->
-        <controls:Pivot x:Name="PhotoPivot" Padding="0" ItemsSource="{Binding Photos}" Margin="-12,-40,-12,0">
+        <controls:Pivot x:Name="PhotoPivot" Padding="0" ItemsSource="{Binding PictureGroup.PictureList}" Margin="-12,-12,-12,0">
             <controls:Pivot.TitleTemplate>
                 <DataTemplate>
-                    <Grid Margin="0"/>
+                    <TextBlock Text="{Binding Path=DataContext.PictureGroup.Title, ElementName=PhotoPivot}" />
                 </DataTemplate>
             </controls:Pivot.TitleTemplate>
             <controls:Pivot.HeaderTemplate>
                 <DataTemplate>
-                    <Grid Margin="0"/>
+                    <Grid />
                 </DataTemplate>
             </controls:Pivot.HeaderTemplate>
             <controls:Pivot.ItemTemplate>
                 <DataTemplate>
-                    <controls:PivotItem x:Name="PhotoPivotItem" Margin="0" Padding="0">
-                        <!--<phone:WebBrowser Source="{Binding}" />-->
-                        <Image x:Name="PhotoPicture" Source="{Binding}" Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0">
-                        </Image>
-                    </controls:PivotItem>
+                    <Grid>
+                        <TextBlock Text="{Binding Path=Package}" />
+                        <controls:PivotItem x:Name="PhotoPivotItem" Margin="0" Padding="0">
+                            <!--<phone:WebBrowser Source="{Binding}" />-->
+                            <Grid>
+                                <Image x:Name="PhotoPicture" Source="{Binding}" Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0">
+                                </Image>
+                            </Grid>
+                        </controls:PivotItem>
+                    </Grid>
                 </DataTemplate>
             </controls:Pivot.ItemTemplate>
         </controls:Pivot>

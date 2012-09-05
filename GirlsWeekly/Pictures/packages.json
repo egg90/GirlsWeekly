@@ -1,0 +1,22 @@
+{
+  "Packages": [
+    {
+      "PackageId": 101,
+      "Category": 0,
+      "Title": "\u5ea6\u5a18",
+      "MainPicture": "http:\/\/www.baidu.com\/img\/baidu_sylogo1.gif",
+      "IsInternal": false,
+      "CreateTime": "2012-09-05 12:08:27",
+      "PictureGroups": null
+    },
+    {
+      "PackageId": 102,
+      "Category": 2,
+      "Title": "\u8c37\u6b4c",
+      "MainPicture": "http:\/\/www.google.com.hk\/images\/srpr\/logo3w.png",
+      "IsInternal": false,
+      "CreateTime": "2012-09-05 12:08:33",
+      "PictureGroups": null
+    }
+  ]
+}

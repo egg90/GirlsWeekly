@@ -49,6 +49,7 @@ namespace GirlsWeekly.ViewModel
             ////this.TestModels();
             this.TestDumpInternalPackages();
             this.LoadInternalPackages();
+            this.TestServerJson();
         }
 
         #endregion
@@ -116,6 +117,26 @@ namespace GirlsWeekly.ViewModel
             ServiceLocator.Get<ICommonUIService>().ShowMessageBox(ServiceLocator.Get<IApplicationInfoService>().VersionNumber, "VersionNumber");
             ServiceLocator.Get<ICommonUIService>().ShowMessageBox(ServiceLocator.Get<IApplicationInfoService>().AppID, "AppID");
             ServiceLocator.Get<ICommonUIService>().ShowMessageBox(ServiceLocator.Get<IApplicationInfoService>().NetworkStatus.ToString("F"), "NetworkStatus");
+        }
+
+        /// <summary>
+        /// Tests the server json.
+        /// </summary>
+        private void TestServerJson()
+        {
+            string jstr;
+            using (var stream = Application.GetResourceStream(new Uri("Pictures/packages.json", UriKind.Relative)).Stream)
+            {
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    jstr = reader.ReadToEnd();
+                }
+            }
+
+            var json = JObject.Parse(jstr);
+            jstr = json["Packages"].ToString();
+
+            var packages = JsonConvert.DeserializeObject<List<Package>>(jstr);
         }
 
         /// <summary>
